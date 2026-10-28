@@ -16,5 +16,6 @@ tests · Non-functional requirements (NFRs). Build in order; each depends on the
 | 08 | Gamification | 04,05,06 | streaks, XP, badges tied to real milestones |
 | 09 | Progress dashboard | 04,05,08 | per-skill bars, streak calendar, badges |
 
-Status: SPEC-00 written as the template. 01–09 follow the same shape.
+Status: SPEC-00 through SPEC-06 written in full. 07–09 (library, gamification,
+progress dashboard) follow the same shape — not yet written.
 Design/brand: ../BRAND-AND-DESIGN.md
