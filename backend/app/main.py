@@ -11,6 +11,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .adaptive import decide_action
+from .bank import select_item
+from .gemini import compose_lesson
 from .models import LessonRequest, QuizSubmission
 
 app = FastAPI(title="Lugha API", version="0.1.0")
@@ -43,13 +45,34 @@ def grade_quiz(sub: QuizSubmission) -> dict:
 
 
 @app.post("/lesson/next")
-def next_lesson(req: LessonRequest) -> dict:
-    """STUB: real impl calls Gemini with learner level + due items (SPEC-06).
-    Core fundamentals come from the VERIFIED lesson bank, not live generation."""
+def next_lesson(req: LessonRequest, level: int = 1) -> dict:
+    """SPEC-02/06: pick a VERIFIED item from the bank (fundamentals never invented),
+    then let Gemini COMPOSE an i+1 example + pushed-output prompt around it.
+    No verified item at this level → needs_content (never a fabricated item)."""
+    item = select_item(req.skill, level, require_verified=True)
+    if item is None:
+        return {
+            "learner_id": req.learner_id,
+            "skill": req.skill,
+            "level": level,
+            "status": "needs_content",
+            "note": "no VERIFIED item at this level — seed/verify the bank (SPEC-02)",
+        }
+    lesson = compose_lesson(item)
     return {
         "learner_id": req.learner_id,
         "skill": req.skill,
-        "source": "verified_bank_stub",
-        "item": {"arabic": "مَرْحَبًا", "translit": "marhaban", "meaning": "hello"},
-        "note": "stub — wire Gemini + verified bank per SPEC-02 / SPEC-06",
+        "level": level,
+        "status": "ok",
+        "focus": {
+            "item_id": item.item_id, "arabic": item.arabic,
+            "translit": item.translit, "meaning": item.meaning,
+            "source": "verified",
+        },
+        "example": {
+            "arabic": lesson.example_arabic,
+            "meaning": lesson.example_meaning,
+            "source": lesson.source,  # generated | fallback — never "verified"
+        },
+        "output_prompt": lesson.output_prompt,
     }
