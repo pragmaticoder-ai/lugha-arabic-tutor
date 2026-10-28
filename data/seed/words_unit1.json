@@ -1,0 +1,11 @@
+{
+  "_note": "First real words — Mastering Arabic 1, Unit 1, p.10 (Exercise 8). Harakat are the BOOK's, not invented. These use only Group-1/2 letters, so a learner who did Chapters 1-2 can decode them. source cites the book+page; sound_verified true because quoted. These are single words (not copyrightable); the exercise text is NOT reproduced.",
+  "book_source": "SRC-MASTERING-ARABIC-1",
+  "items": [
+    {"item_id":"w_bint","skill":"reading","level":3,"stage":"2-words","arabic":"بِنْت","translit":"bint","meaning":"girl / daughter","source":"SRC-MASTERING-ARABIC-1","page":10,"verified":true,"freq_rank":1},
+    {"item_id":"w_bunn","skill":"reading","level":3,"stage":"2-words","arabic":"بُنّ","translit":"bunn","meaning":"coffee beans","source":"SRC-MASTERING-ARABIC-1","page":10,"verified":true,"freq_rank":2},
+    {"item_id":"w_bayt","skill":"reading","level":3,"stage":"2-words","arabic":"بَيْت","translit":"bayt","meaning":"house","source":"SRC-MASTERING-ARABIC-1","page":10,"verified":true,"freq_rank":3},
+    {"item_id":"w_tibn","skill":"reading","level":3,"stage":"2-words","arabic":"تِبْن","translit":"tibn","meaning":"hay","source":"SRC-MASTERING-ARABIC-1","page":10,"verified":true,"freq_rank":4},
+    {"item_id":"w_bayna","skill":"reading","level":3,"stage":"2-words","arabic":"بَيْنَ","translit":"bayna","meaning":"between","source":"SRC-MASTERING-ARABIC-1","page":10,"verified":true,"freq_rank":5}
+  ]
+}

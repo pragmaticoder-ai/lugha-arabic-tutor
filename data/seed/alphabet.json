@@ -4,7 +4,7 @@
     {
       "order": 1,
       "name": "baa",
-      "sound": "b",
+      "sound": "b as in 'bat'",
       "isolated": "ب",
       "initial": "بـ",
       "medial": "ـبـ",
@@ -13,12 +13,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 1,
       "unit_page": 2,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 2,
+      "sound_verified": true
     },
     {
       "order": 2,
       "name": "taa",
-      "sound": "t",
+      "sound": "t as in 'tap'",
       "isolated": "ت",
       "initial": "تـ",
       "medial": "ـتـ",
@@ -27,12 +30,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 1,
       "unit_page": 2,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 2,
+      "sound_verified": true
     },
     {
       "order": 3,
       "name": "thaa",
-      "sound": "th (think)",
+      "sound": "th as in 'thin'",
       "isolated": "ث",
       "initial": "ثـ",
       "medial": "ـثـ",
@@ -41,12 +47,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 1,
       "unit_page": 2,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 2,
+      "sound_verified": true
     },
     {
       "order": 4,
       "name": "nuun",
-      "sound": "n",
+      "sound": "n as in 'nab'",
       "isolated": "ن",
       "initial": "نـ",
       "medial": "ـنـ",
@@ -55,12 +64,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 1,
       "unit_page": 2,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 2,
+      "sound_verified": true
     },
     {
       "order": 5,
       "name": "yaa",
-      "sound": "y / long ii",
+      "sound": "y as in 'yet'",
       "isolated": "ي",
       "initial": "يـ",
       "medial": "ـيـ",
@@ -69,12 +81,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 1,
       "unit_page": 2,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 2,
+      "sound_verified": true
     },
     {
       "order": 6,
       "name": "alif",
-      "sound": "long aa / glottal seat",
+      "sound": "long vowel seat (see p.19)",
       "isolated": "ا",
       "initial": "ا",
       "medial": "ـا",
@@ -83,12 +98,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 2,
       "unit_page": 13,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 13,
+      "sound_verified": true
     },
     {
       "order": 7,
       "name": "daal",
-      "sound": "d",
+      "sound": "d as in 'dad'",
       "isolated": "د",
       "initial": "د",
       "medial": "ـد",
@@ -97,12 +115,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 2,
       "unit_page": 13,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 13,
+      "sound_verified": true
     },
     {
       "order": 8,
       "name": "dhaal",
-      "sound": "th (this)",
+      "sound": "th as in 'that'",
       "isolated": "ذ",
       "initial": "ذ",
       "medial": "ـذ",
@@ -111,12 +132,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 2,
       "unit_page": 13,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 13,
+      "sound_verified": true
     },
     {
       "order": 9,
       "name": "raa",
-      "sound": "r (rolled)",
+      "sound": "rolled r, as in Spanish 'arriba'",
       "isolated": "ر",
       "initial": "ر",
       "medial": "ـر",
@@ -125,12 +149,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 2,
       "unit_page": 13,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 13,
+      "sound_verified": true
     },
     {
       "order": 10,
       "name": "zaay",
-      "sound": "z",
+      "sound": "z as in 'zone'",
       "isolated": "ز",
       "initial": "ز",
       "medial": "ـز",
@@ -139,12 +166,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 2,
       "unit_page": 13,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 13,
+      "sound_verified": true
     },
     {
       "order": 11,
       "name": "waaw",
-      "sound": "w / long uu",
+      "sound": "w as in 'wet'",
       "isolated": "و",
       "initial": "و",
       "medial": "ـو",
@@ -153,7 +183,10 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 2,
       "unit_page": 13,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 13,
+      "sound_verified": true
     },
     {
       "order": 12,

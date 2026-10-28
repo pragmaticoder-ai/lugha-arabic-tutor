@@ -10,6 +10,6 @@
     {"num": 6, "title": "Letters — Group 6 (ط ظ ع غ)", "stage": "Unit 6 · p.66", "from_seed": "alphabet.json", "unit_filter": 6, "source": "SRC-MASTERING-ARABIC-1"},
     {"num": 7, "title": "Short Vowels (Harakat)", "stage": "Unit 1 · p.5", "from_seed": "stage0_foundation.json", "stage_filter": "0-harakat", "source": "SRC-MASTERING-ARABIC-1", "note": "book teaches vowels in Unit 1; fill items + page"},
     {"num": 8, "title": "Numbers 1–10", "stage": "Unit 10 · p.118", "from_seed": "stage0_foundation.json", "stage_filter": "0-numerals", "source": "SRC-MASTERING-ARABIC-1"},
-    {"num": 9, "title": "First Words", "stage": "Units 1–3 · greetings/family", "from_seed": "year1_bank.json", "stage_filter": "2-words", "source": "SRC-MASTERING-ARABIC-1"}
+    {"num": 9, "title": "First Words (Unit 1)", "stage": "Unit 1 · p.10", "from_seed": "words_unit1.json", "source": "SRC-MASTERING-ARABIC-1"}
   ]
 }
