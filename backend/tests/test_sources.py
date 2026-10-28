@@ -31,4 +31,4 @@ def test_syllabus_sequence_from_data_file():
     # order comes from chapters.json, alphabet still first
     from app.syllabus import build_syllabus
     titles = [c["title"] for c in build_syllabus()["chapters"]]
-    assert titles[0] == "The Alphabet"
+    assert "Group 1" in titles[0]  # book starts with letter group 1

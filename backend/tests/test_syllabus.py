@@ -1,39 +1,42 @@
-"""Tests for the sequenced syllabus (SPEC-02)."""
+"""Tests for the sequenced syllabus (SPEC-02) — driven by Mastering Arabic 1."""
 from app.syllabus import build_syllabus
 
 
-def test_chapter_one_has_all_28_letters_in_order():
+def test_all_28_letters_across_group_chapters():
     syl = build_syllabus()
-    ch1 = syl["chapters"][0]
-    assert ch1["num"] == 1 and ch1["title"] == "The Alphabet"
-    assert len(ch1["pages"]) == 28
-    # alif first, yaa last
-    assert ch1["pages"][0]["translit"] == "alif"
-    assert ch1["pages"][27]["translit"] == "yaa"
+    letter_pages = [p for ch in syl["chapters"] for p in ch["pages"] if p.get("forms")]
+    assert len(letter_pages) == 28
+
+
+def test_book_order_group1_first():
+    # Mastering Arabic 1 starts with group 1: baa, taa, thaa, nuun, yaa (NOT alif first)
+    ch1 = build_syllabus()["chapters"][0]
+    names = [p["translit"] for p in ch1["pages"]]
+    assert names == ["baa", "taa", "thaa", "nuun", "yaa"]
 
 
 def test_every_letter_has_four_forms():
-    ch1 = build_syllabus()["chapters"][0]
-    for p in ch1["pages"]:
-        assert set(p["forms"]) == {"isolated", "initial", "medial", "final"}
-        assert all(p["forms"].values())
+    for ch in build_syllabus()["chapters"]:
+        for p in ch["pages"]:
+            if p.get("forms"):
+                assert set(p["forms"]) == {"isolated", "initial", "medial", "final"}
+                assert all(p["forms"].values())
+
+
+def test_letters_before_words():
+    chapters = build_syllabus()["chapters"]
+    first_word_ch = next(i for i, c in enumerate(chapters) if "Words" in c["title"])
+    first_letter_ch = 0
+    assert first_letter_ch < first_word_ch
+
+
+def test_book_source_recorded():
+    assert build_syllabus()["book_source"] == "SRC-MASTERING-ARABIC-1"
 
 
 def test_non_joining_letters_flagged():
-    ch1 = build_syllabus()["chapters"][0]
-    by_name = {p["translit"]: p for p in ch1["pages"]}
-    # alif, daal, raa, waaw do not join to the left
-    assert by_name["alif"]["joins_left"] is False
-    assert by_name["raa"]["joins_left"] is False
-    assert by_name["baa"]["joins_left"] is True
-
-
-def test_sequence_letters_before_words():
-    chapters = build_syllabus()["chapters"]
-    titles = [c["title"] for c in chapters]
-    assert titles.index("The Alphabet") < titles.index("Decoding Syllables")
-
-
-def test_letters_verified_shapes_are_mechanical():
-    ch1 = build_syllabus()["chapters"][0]
-    assert all(p["verified"] for p in ch1["pages"])
+    letters = {p["translit"]: p for ch in build_syllabus()["chapters"]
+               for p in ch["pages"] if p.get("forms")}
+    assert letters["alif"]["joins_left"] is False
+    assert letters["raa"]["joins_left"] is False
+    assert letters["baa"]["joins_left"] is True

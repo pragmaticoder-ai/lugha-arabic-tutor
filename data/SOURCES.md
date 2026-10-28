@@ -30,11 +30,25 @@ Arabic letter positional FORMS (isolated/initial/medial/final) and which letters
 do not join left. Mechanical from the Unicode bidi/joining algorithm — not opinion.
 Use ONLY for letter shapes, never for sounds, meaning, or sequence.
 
-## SRC-TEXTBOOK  (placeholder — you fill this)
-A named, published beginner Fus'ha textbook you own, e.g.:
-  "Alif Baa: Introduction to Arabic Letters and Sounds, 3rd ed., Georgetown UP"
-Record: title, edition, page/unit for each item. REPLACE this line with the
-real book before citing it.
+## SRC-MASTERING-ARABIC-1
+**Mastering Arabic 1**, 4th edition (2024). Jane Wightwick & Mahmoud Gaafar.
+Bloomsbury Academic. ISBN per Bloomsbury 2024 edition. MSA / Fus'ha, self-study.
+File: ~/Downloads/Mastering_Arabic_1_-_Jane_Wightwick.pdf (384 pp).
+
+Authentic teaching sequence (from the book's Contents) — letters in GROUPS, words later:
+- Unit 1 (p.2):  letters ب ت ث ن ي · vowels · joining · Greetings
+- Unit 2 (p.13): letters ا د ذ ر ز و · long vowels · Introducing yourself
+- Unit 3 (p.25): letters ج ح خ ه م · feminine words · The family
+- Unit 4 (p.37): letters س ش ص ض · plurals · Jobs
+- Unit 5 (p.51): letters ف ق ك ل · the article الـ · Describing things
+- Unit 6 (p.66): letters ط ظ ع غ · emphatic letters · sun letters · hamza
+- Unit 10 (p.118): Arabic numbers 1–10
+- Unit 11 (p.144): Colours
+- Unit 12 (p.151): Eating and drinking (food)
+
+> This is a copyrighted textbook. Cite unit/page as the SOURCE of the sequence and
+> of an item's correctness; do NOT copy its text/exercises into the app. Items
+> reproduce only the letters/words themselves (not copyrightable) + a page cite.
 
 ## SRC-NATIVE-REVIEW  (process, not a document)
 A named native Arabic speaker who confirmed harakat/pronunciation for an item.

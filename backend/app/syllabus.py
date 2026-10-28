@@ -19,10 +19,12 @@ def _load(name: str) -> dict:
         return json.load(f)
 
 
-def _alphabet_pages() -> list[dict]:
+def _alphabet_pages(unit_filter: int | None = None) -> list[dict]:
     pages = []
     for l in _load("alphabet.json")["letters"]:
         if not is_servable(l):  # must cite a source
+            continue
+        if unit_filter is not None and l.get("unit") != unit_filter:
             continue
         pages.append({
             "id": f"ltr_{l['order']}", "arabic": l["isolated"],
@@ -30,7 +32,7 @@ def _alphabet_pages() -> list[dict]:
             "forms": {"isolated": l["isolated"], "initial": l["initial"],
                       "medial": l["medial"], "final": l["final"]},
             "joins_left": l["joins_left"], "verified": True,
-            "source": l["source"],
+            "source": l["source"], "unit": l.get("unit"),
         })
     return pages
 
@@ -58,11 +60,11 @@ def build_syllabus() -> dict:
     chapters = []
     for ch in spec["chapters"]:
         if ch["from_seed"] == "alphabet.json":
-            pages = _alphabet_pages()
+            pages = _alphabet_pages(ch.get("unit_filter"))
         else:
             pages = _seed_pages(ch["from_seed"], ch.get("stage_filter"))
         chapters.append({
             "num": ch["num"], "title": ch["title"], "stage": ch["stage"],
             "source": ch["source"], "pages": pages,
         })
-    return {"framework_source": spec["framework_source"], "chapters": chapters}
+    return {"book_source": spec.get("book_source"), "chapters": chapters}

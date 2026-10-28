@@ -9,6 +9,7 @@ from __future__ import annotations
 VALID_SOURCES = {
     "SRC-UAE-FRAMEWORK",
     "SRC-UNICODE-JOINING",
+    "SRC-MASTERING-ARABIC-1",
     "SRC-TEXTBOOK",
     "SRC-NATIVE-REVIEW",
 }
