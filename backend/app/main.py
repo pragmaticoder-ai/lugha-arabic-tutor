@@ -14,6 +14,7 @@ from .adaptive import decide_action
 from .bank import select_item
 from .gemini import compose_lesson
 from .models import LessonRequest, QuizSubmission
+from .syllabus import build_syllabus
 
 app = FastAPI(title="Lugha API", version="0.1.0")
 
@@ -29,6 +30,13 @@ app.add_middleware(
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok"}
+
+
+@app.get("/syllabus")
+def syllabus() -> dict:
+    """SPEC-02: the sequenced textbook — letters & numerals FIRST, words last.
+    Letter shapes are mechanical (verified); word chapters stay unverified."""
+    return build_syllabus()
 
 
 @app.post("/quiz/grade")
