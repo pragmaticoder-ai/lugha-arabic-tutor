@@ -1,0 +1,10 @@
+{
+  "_note": "The SEQUENCE of chapters, as DATA — not hardcoded in the app. Order and level boundaries cite SRC-UAE-FRAMEWORK (see data/SOURCES.md). Each chapter's PAGES are pulled from the seed files, which must each carry a `source`. A chapter with no sourced items serves nothing.",
+  "framework_source": "SRC-UAE-FRAMEWORK",
+  "chapters": [
+    {"num": 1, "title": "The Alphabet", "stage": "Stage 0 · Foundation", "from_seed": "alphabet.json", "source": "SRC-UNICODE-JOINING", "note": "letter shapes only"},
+    {"num": 2, "title": "Short Vowels (Harakat)", "stage": "Stage 0 · Foundation", "from_seed": "stage0_foundation.json", "stage_filter": "0-harakat", "source": "SRC-TEXTBOOK", "note": "FILL from a named textbook"},
+    {"num": 3, "title": "Numerals", "stage": "Stage 0 · Foundation", "from_seed": "stage0_foundation.json", "stage_filter": "0-numerals", "source": "SRC-UAE-FRAMEWORK", "note": "framework: 'count from one to ten'"},
+    {"num": 4, "title": "Decoding Syllables", "stage": "Stage 1 · Reading", "from_seed": "stage0_foundation.json", "stage_filter": "1-decoding", "source": "SRC-TEXTBOOK", "note": "FILL from a named textbook"}
+  ]
+}

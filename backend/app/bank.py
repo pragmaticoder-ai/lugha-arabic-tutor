@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 
 from .gemini import VerifiedItem
+from .sources import is_servable
 
 _SEED = Path(__file__).resolve().parents[2] / "data" / "seed" / "year1_bank.json"
 
@@ -24,6 +25,7 @@ def select_item(skill: str, level: int, *, require_verified: bool = True) -> Ver
     rows = [
         r for r in _load_raw()
         if r["skill"] == skill and r["level"] == level
+        and is_servable(r)  # no source -> never served
         and (r.get("verified", False) or not require_verified)
     ]
     if not rows:
