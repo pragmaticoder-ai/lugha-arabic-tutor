@@ -33,16 +33,19 @@ def _alphabet_pages(unit_filter: int | None = None) -> list[dict]:
                       "medial": l["medial"], "final": l["final"]},
             "joins_left": l["joins_left"], "verified": True,
             "source": l["source"], "unit": l.get("unit"),
+            "page": l.get("sound_page"),
         })
     return pages
 
 
-def _seed_pages(seed_file: str, stage_filter: str | None) -> list[dict]:
+def _seed_pages(seed_file: str, stage_filter: str | None, group_filter: int | None = None) -> list[dict]:
     pages = []
     for it in _load(seed_file)["items"]:
         if it["item_id"].startswith("_"):
             continue
         if stage_filter and not it.get("stage", "").startswith(stage_filter):
+            continue
+        if group_filter is not None and it.get("group") != group_filter:
             continue
         if not is_servable(it):  # refuse unsourced
             continue
@@ -50,6 +53,7 @@ def _seed_pages(seed_file: str, stage_filter: str | None) -> list[dict]:
             "id": it["item_id"], "arabic": it["arabic"],
             "translit": it["translit"], "sound": it["meaning"],
             "verified": it.get("verified", False), "source": it["source"],
+            "page": it.get("page"),
         })
     return pages
 
@@ -62,7 +66,7 @@ def build_syllabus() -> dict:
         if ch["from_seed"] == "alphabet.json":
             pages = _alphabet_pages(ch.get("unit_filter"))
         else:
-            pages = _seed_pages(ch["from_seed"], ch.get("stage_filter"))
+            pages = _seed_pages(ch["from_seed"], ch.get("stage_filter"), ch.get("group_filter"))
         chapters.append({
             "num": ch["num"], "title": ch["title"], "stage": ch["stage"],
             "source": ch["source"], "pages": pages,

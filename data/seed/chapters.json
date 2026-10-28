@@ -10,6 +10,11 @@
     {"num": 6, "title": "Letters — Group 6 (ط ظ ع غ)", "stage": "Unit 6 · p.66", "from_seed": "alphabet.json", "unit_filter": 6, "source": "SRC-MASTERING-ARABIC-1"},
     {"num": 7, "title": "Short Vowels (Harakat)", "stage": "Unit 1 · p.5", "from_seed": "stage0_foundation.json", "stage_filter": "0-harakat", "source": "SRC-MASTERING-ARABIC-1", "note": "book teaches vowels in Unit 1; fill items + page"},
     {"num": 8, "title": "Numbers 1–10", "stage": "Unit 10 · p.118", "from_seed": "stage0_foundation.json", "stage_filter": "0-numerals", "source": "SRC-MASTERING-ARABIC-1"},
-    {"num": 9, "title": "First Words (Unit 1)", "stage": "Unit 1 · p.10", "from_seed": "words_unit1.json", "source": "SRC-MASTERING-ARABIC-1"}
+    {"num": 9, "title": "Words — Group 1 (Unit 1)", "stage": "Unit 1 · p.10", "from_seed": "words_unit1.json", "source": "SRC-MASTERING-ARABIC-1"},
+    {"num": 10, "title": "Words — Group 2 (Unit 2)", "stage": "Unit 2", "from_seed": "words_groups.json", "group_filter": 2, "source": "SRC-MASTERING-ARABIC-1"},
+    {"num": 11, "title": "Words — Family (Unit 3)", "stage": "Unit 3", "from_seed": "words_groups.json", "group_filter": 3, "source": "SRC-MASTERING-ARABIC-1"},
+    {"num": 12, "title": "Words — Jobs (Unit 4)", "stage": "Unit 4", "from_seed": "words_groups.json", "group_filter": 4, "source": "SRC-MASTERING-ARABIC-1"},
+    {"num": 13, "title": "Words — Describing (Unit 5)", "stage": "Unit 5", "from_seed": "words_groups.json", "group_filter": 5, "source": "SRC-MASTERING-ARABIC-1"},
+    {"num": 14, "title": "Words — Places (Unit 6)", "stage": "Unit 6", "from_seed": "words_groups.json", "group_filter": 6, "source": "SRC-MASTERING-ARABIC-1"}
   ]
 }

@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 type Page = {
   id: string; arabic: string; translit: string; sound?: string;
   forms?: { isolated: string; initial: string; medial: string; final: string };
-  joins_left?: boolean; verified?: boolean;
+  joins_left?: boolean; verified?: boolean; source?: string; page?: number;
 };
 type Chapter = { num: number; title: string; stage: string; pages: Page[] };
 
@@ -40,6 +40,22 @@ export default function Book() {
   const lesson = chapter.pages[pg] ?? chapter.pages[0];
   const atFirst = ch === 0 && pg === 0;
   const atLast = ch === chapters.length - 1 && pg === chapter.pages.length - 1;
+
+  const [canSpeak, setCanSpeak] = useState(true);
+  useEffect(() => {
+    setCanSpeak(typeof window !== "undefined" && "speechSynthesis" in window);
+  }, []);
+
+  function speak(text: string) {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "ar-SA";           // Modern Standard Arabic
+    u.rate = 0.75;             // slower, for learners
+    const arVoice = window.speechSynthesis.getVoices().find((v) => v.lang.startsWith("ar"));
+    if (arVoice) u.voice = arVoice;
+    window.speechSynthesis.speak(u);
+  }
 
   function next() {
     if (pg < chapter.pages.length - 1) setPg(pg + 1);
@@ -104,11 +120,26 @@ export default function Book() {
               </div>
             )}
 
-            <div className="mt-8 flex items-center justify-center gap-3">
-              <button className="rounded-lg border border-lugha-200 px-4 py-2 text-sm text-lugha-700 hover:bg-lugha-50">▶ Hear it</button>
-              <button className="rounded-lg bg-gold-500 px-4 py-2 text-sm font-medium text-white hover:bg-gold-600">🎙 Repeat</button>
+            <div className="mt-8 flex flex-col items-center gap-2">
+              <div className="flex items-center justify-center gap-3">
+                <button onClick={() => speak(lesson.arabic)} disabled={!canSpeak}
+                  className="rounded-lg border border-lugha-200 px-4 py-2 text-sm text-lugha-700 hover:bg-lugha-50 disabled:opacity-40">▶ Hear it</button>
+                <button onClick={() => speak(lesson.arabic)} disabled={!canSpeak}
+                  className="rounded-lg bg-gold-500 px-4 py-2 text-sm font-medium text-white hover:bg-gold-600 disabled:opacity-40">🎙 Repeat</button>
+              </div>
+              <p className="text-[11px] text-muted">
+                {canSpeak
+                  ? "Synthetic voice (your browser) — not a native recording."
+                  : "Audio not available in this browser."}
+              </p>
             </div>
           </article>
+
+          {lesson.source && (
+            <p className="mt-3 text-center text-[11px] text-muted">
+              Source: {lesson.source}{lesson.page ? ` · p.${lesson.page}` : ""}
+            </p>
+          )}
 
           <nav className="mt-6 flex items-center justify-between">
             <button onClick={prev} disabled={atFirst}
