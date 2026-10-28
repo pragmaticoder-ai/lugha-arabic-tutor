@@ -1,0 +1,5 @@
+project_id = "your-gcp-project-id"
+region     = "us-central1"
+# filled by scripts/deploy.sh after images are built+pushed:
+web_image  = "us-central1-docker.pkg.dev/your-gcp-project-id/lugha/lugha-web:latest"
+api_image  = "us-central1-docker.pkg.dev/your-gcp-project-id/lugha/lugha-api:latest"
