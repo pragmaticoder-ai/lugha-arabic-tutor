@@ -34,6 +34,17 @@ def test_book_source_recorded():
     assert build_syllabus()["book_source"] == "SRC-MASTERING-ARABIC-1"
 
 
+def test_all_letters_have_book_verified_sound():
+    import json, pathlib
+    seed = pathlib.Path(__file__).resolve().parents[2] / "data" / "seed" / "alphabet.json"
+    letters = json.loads(seed.read_text(encoding="utf-8"))["letters"]
+    assert len(letters) == 28
+    for l in letters:
+        assert l.get("sound_verified") is True, f"{l['name']} sound not book-verified"
+        assert l.get("sound_source") == "SRC-MASTERING-ARABIC-1"
+        assert l.get("sound_page")
+
+
 def test_non_joining_letters_flagged():
     letters = {p["translit"]: p for ch in build_syllabus()["chapters"]
                for p in ch["pages"] if p.get("forms")}

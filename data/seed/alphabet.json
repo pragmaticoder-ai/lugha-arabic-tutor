@@ -191,7 +191,7 @@
     {
       "order": 12,
       "name": "jiim",
-      "sound": "j",
+      "sound": "j as in French 'je' (often 'g' as in 'gate' in N. Egypt)",
       "isolated": "ج",
       "initial": "جـ",
       "medial": "ـجـ",
@@ -200,12 +200,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 3,
       "unit_page": 25,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 25,
+      "sound_verified": true
     },
     {
       "order": 13,
       "name": "haa",
-      "sound": "h (hard, from throat)",
+      "sound": "breathy, strong 'h'",
       "isolated": "ح",
       "initial": "حـ",
       "medial": "ـحـ",
@@ -214,12 +217,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 3,
       "unit_page": 25,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 25,
+      "sound_verified": true
     },
     {
       "order": 14,
       "name": "khaa",
-      "sound": "kh (loch)",
+      "sound": "ch as in Scottish 'loch'",
       "isolated": "خ",
       "initial": "خـ",
       "medial": "ـخـ",
@@ -228,12 +234,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 3,
       "unit_page": 25,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 25,
+      "sound_verified": true
     },
     {
       "order": 15,
       "name": "haa (soft)",
-      "sound": "h (soft)",
+      "sound": "h as in 'house'",
       "isolated": "ه",
       "initial": "هـ",
       "medial": "ـهـ",
@@ -242,12 +251,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 3,
       "unit_page": 25,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 25,
+      "sound_verified": true
     },
     {
       "order": 16,
       "name": "miim",
-      "sound": "m",
+      "sound": "m as in 'mastering'",
       "isolated": "م",
       "initial": "مـ",
       "medial": "ـمـ",
@@ -256,12 +268,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 3,
       "unit_page": 25,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 25,
+      "sound_verified": true
     },
     {
       "order": 17,
       "name": "siin",
-      "sound": "s",
+      "sound": "s as in 'sea'",
       "isolated": "س",
       "initial": "سـ",
       "medial": "ـسـ",
@@ -270,12 +285,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 4,
       "unit_page": 37,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 37,
+      "sound_verified": true
     },
     {
       "order": 18,
       "name": "shiin",
-      "sound": "sh",
+      "sound": "sh as in 'sheet'",
       "isolated": "ش",
       "initial": "شـ",
       "medial": "ـشـ",
@@ -284,12 +302,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 4,
       "unit_page": 37,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 37,
+      "sound_verified": true
     },
     {
       "order": 19,
       "name": "saad",
-      "sound": "s (emphatic)",
+      "sound": "strong, emphatic 's'",
       "isolated": "ص",
       "initial": "صـ",
       "medial": "ـصـ",
@@ -298,12 +319,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 4,
       "unit_page": 37,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 37,
+      "sound_verified": true
     },
     {
       "order": 20,
       "name": "daad",
-      "sound": "d (emphatic)",
+      "sound": "strong, emphatic 'd'",
       "isolated": "ض",
       "initial": "ضـ",
       "medial": "ـضـ",
@@ -312,12 +336,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 4,
       "unit_page": 37,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 37,
+      "sound_verified": true
     },
     {
       "order": 21,
       "name": "faa",
-      "sound": "f",
+      "sound": "f as in 'foot'",
       "isolated": "ف",
       "initial": "فـ",
       "medial": "ـفـ",
@@ -326,12 +353,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 5,
       "unit_page": 51,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 51,
+      "sound_verified": true
     },
     {
       "order": 22,
       "name": "qaaf",
-      "sound": "q (deep k)",
+      "sound": "q — deep 'k' from the back of the throat (see p.52)",
       "isolated": "ق",
       "initial": "قـ",
       "medial": "ـقـ",
@@ -340,12 +370,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 5,
       "unit_page": 51,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 51,
+      "sound_verified": true
     },
     {
       "order": 23,
       "name": "kaaf",
-      "sound": "k",
+      "sound": "k as in 'kettle'",
       "isolated": "ك",
       "initial": "كـ",
       "medial": "ـكـ",
@@ -354,12 +387,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 5,
       "unit_page": 51,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 51,
+      "sound_verified": true
     },
     {
       "order": 24,
       "name": "laam",
-      "sound": "l",
+      "sound": "l as in 'lamb'",
       "isolated": "ل",
       "initial": "لـ",
       "medial": "ـلـ",
@@ -368,12 +404,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 5,
       "unit_page": 51,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 51,
+      "sound_verified": true
     },
     {
       "order": 25,
       "name": "taa (emphatic)",
-      "sound": "t (emphatic)",
+      "sound": "strong, emphatic 't'",
       "isolated": "ط",
       "initial": "طـ",
       "medial": "ـطـ",
@@ -382,12 +421,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 6,
       "unit_page": 66,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 66,
+      "sound_verified": true
     },
     {
       "order": 26,
       "name": "zaa (emphatic)",
-      "sound": "z (emphatic)",
+      "sound": "strong, emphatic 'dh'/'z'",
       "isolated": "ظ",
       "initial": "ظـ",
       "medial": "ـظـ",
@@ -396,12 +438,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 6,
       "unit_page": 66,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 66,
+      "sound_verified": true
     },
     {
       "order": 27,
       "name": "ayn",
-      "sound": "ʿ (deep throat)",
+      "sound": "guttural 'ah' (see p.68)",
       "isolated": "ع",
       "initial": "عـ",
       "medial": "ـعـ",
@@ -410,12 +455,15 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 6,
       "unit_page": 66,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 66,
+      "sound_verified": true
     },
     {
       "order": 28,
       "name": "ghayn",
-      "sound": "gh (French r)",
+      "sound": "a gargling sound, like a French 'r'",
       "isolated": "غ",
       "initial": "غـ",
       "medial": "ـغـ",
@@ -424,7 +472,10 @@
       "source": "SRC-MASTERING-ARABIC-1",
       "unit": 6,
       "unit_page": 66,
-      "shape_source": "SRC-UNICODE-JOINING"
+      "shape_source": "SRC-UNICODE-JOINING",
+      "sound_source": "SRC-MASTERING-ARABIC-1",
+      "sound_page": 66,
+      "sound_verified": true
     }
   ]
 }
