@@ -1,94 +1,114 @@
 "use client";
 import { useState } from "react";
 
-const TABS = ["Learn", "Library", "Progress", "Profile"] as const;
-type Tab = (typeof TABS)[number];
+/**
+ * Textbook-style layout: a calm, page-like workbook — NOT an app dashboard.
+ * Left: contents (chapters/stages, in sequence). Right: the open "page".
+ * Sequence follows docs/SYLLABUS.md: Letters → Harakat → Numerals → Decoding → Words.
+ */
 
-export default function Home() {
-  const [tab, setTab] = useState<Tab>("Learn");
-  return (
-    <main className="container">
-      {tab === "Learn" && <Learn />}
-      {tab === "Library" && <Library />}
-      {tab === "Progress" && <Progress />}
-      {tab === "Profile" && <Profile />}
-      <nav className="tabbar">
-        {TABS.map((t) => (
-          <button key={t} className={`tab ${tab === t ? "active" : ""}`} onClick={() => setTab(t)}>{t}</button>
-        ))}
-      </nav>
-    </main>
-  );
-}
+type Lesson = { id: string; arabic: string; translit: string; note: string };
+type Chapter = { num: number; title: string; stage: string; lessons: Lesson[] };
 
-function Learn() {
-  return (
-    <>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h1 style={{ fontSize: 22 }}>Lugha</h1>
-        <span className="streak">🔥 3-day streak</span>
-      </div>
-      <div className="card" style={{ marginTop: 12 }}>
-        <span className="skill-pill" style={{ background: "#E8F5F1", color: "#0E7C66" }}>Reading · L1</span>
-        <p className="arabic">مَرْحَبًا</p>
-        <p style={{ color: "var(--slate-500)", margin: "4px 0" }}>marḥaban — hello</p>
-        <button className="btn" style={{ marginTop: 8 }}>▶ Hear it</button>
-        <button className="btn btn-gold" style={{ marginTop: 8 }}>🎙 Repeat (shadow)</button>
-      </div>
-      <div className="card" style={{ marginTop: 12 }}>
-        <b>Your turn (say it):</b>
-        <p style={{ color: "var(--slate-500)" }}>How do you greet someone? Reply in Arabic.</p>
-      </div>
-      <button className="btn" style={{ marginTop: 16 }}>Continue →</button>
-      <p style={{ color: "var(--slate-500)", fontSize: 13, marginTop: 8 }}>4 items due for review</p>
-    </>
-  );
-}
+const BOOK: Chapter[] = [
+  { num: 1, title: "The Alphabet", stage: "Stage 0 · Foundation", lessons: [
+    { id: "alif", arabic: "ا", translit: "alif", note: "Sound: long 'aa'. Does not join to the left." },
+    { id: "baa", arabic: "ب", translit: "baa", note: "Sound: 'b'. Forms: بـ ـبـ ـب" },
+    { id: "taa", arabic: "ت", translit: "taa", note: "Sound: 't'. Two dots above." },
+    { id: "thaa", arabic: "ث", translit: "thaa", note: "Sound: 'th'. Three dots above." },
+  ]},
+  { num: 2, title: "Short Vowels (Harakat)", stage: "Stage 0 · Foundation", lessons: [
+    { id: "fatha", arabic: "بَ", translit: "ba", note: "Fatha: short 'a' above the letter." },
+    { id: "kasra", arabic: "بِ", translit: "bi", note: "Kasra: short 'i' below the letter." },
+    { id: "damma", arabic: "بُ", translit: "bu", note: "Damma: short 'u' above the letter." },
+  ]},
+  { num: 3, title: "Numerals ٠–٩", stage: "Stage 0 · Foundation", lessons: [
+    { id: "n0", arabic: "٠", translit: "sifr", note: "Numeral 0." },
+    { id: "n1", arabic: "١", translit: "wahid", note: "Numeral 1." },
+    { id: "n2", arabic: "٢", translit: "ithnan", note: "Numeral 2." },
+  ]},
+  { num: 4, title: "Decoding Syllables", stage: "Stage 1 · Reading", lessons: [
+    { id: "ba_series", arabic: "بَ بِ بُ", translit: "ba · bi · bu", note: "Blend a consonant with each short vowel." },
+    { id: "al", arabic: "الـ", translit: "al-", note: "The article 'the'. Sun vs moon letters." },
+  ]},
+  { num: 5, title: "First Words", stage: "Stage 2 · Vocabulary", lessons: [
+    { id: "marhaba", arabic: "مَرْحَبًا", translit: "marhaban", note: "hello — now you can decode it." },
+    { id: "shukran", arabic: "شُكْرًا", translit: "shukran", note: "thank you" },
+  ]},
+];
 
-function Library() {
-  return (
-    <>
-      <h1 style={{ fontSize: 22 }}>Library</h1>
-      <p style={{ color: "var(--slate-500)" }}>Read like a book — no quiz, just immersion.</p>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 12 }}>
-        {["Greetings", "Numbers", "Colours", "Food"].map((c) => (
-          <div key={c} className="card" style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28 }}>📖</div><b>{c}</b>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
+export default function Book() {
+  const [ch, setCh] = useState(0);
+  const [pg, setPg] = useState(0);
+  const chapter = BOOK[ch];
+  const lesson = chapter.lessons[pg];
+  const atFirst = ch === 0 && pg === 0;
+  const atLast = ch === BOOK.length - 1 && pg === chapter.lessons.length - 1;
 
-function Progress() {
-  const skills = [["Listening","#0284C7",40],["Speaking","#D9A441",25],["Reading","#0E7C66",60],["Writing","#7C3AED",20]] as const;
+  function next() {
+    if (pg < chapter.lessons.length - 1) setPg(pg + 1);
+    else if (ch < BOOK.length - 1) { setCh(ch + 1); setPg(0); }
+  }
+  function prev() {
+    if (pg > 0) setPg(pg - 1);
+    else if (ch > 0) { setCh(ch - 1); setPg(BOOK[ch - 1].lessons.length - 1); }
+  }
+
   return (
-    <>
-      <h1 style={{ fontSize: 22 }}>Progress</h1>
-      {skills.map(([name, color, pct]) => (
-        <div key={name} style={{ margin: "12px 0" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13 }}><span>{name}</span><span>{pct}%</span></div>
-          <div style={{ background: "var(--slate-200)", borderRadius: 999, height: 10 }}>
-            <div style={{ width: `${pct}%`, background: color as string, height: 10, borderRadius: 999 }} />
-          </div>
+    <div className="min-h-dvh bg-[#F3EFE6] text-ink">
+      {/* Book masthead */}
+      <header className="border-b border-[#E3DBC9] bg-[#FBF8F1]">
+        <div className="mx-auto max-w-5xl px-6 py-4">
+          <h1 className="font-arabic text-2xl text-lugha-700">لُغة · Lugha</h1>
+          <p className="text-sm text-muted">An Arabic workbook — learn in order, page by page.</p>
         </div>
-      ))}
-    </>
-  );
-}
+      </header>
 
-function Profile() {
-  return (
-    <>
-      <h1 style={{ fontSize: 22 }}>Who's learning?</h1>
-      <div style={{ display: "flex", gap: 12, marginTop: 12 }}>
-        {["You", "Kid 1", "Kid 2"].map((n) => (
-          <div key={n} className="card" style={{ textAlign: "center", flex: 1 }}>
-            <div style={{ fontSize: 32 }}>🙂</div><b>{n}</b>
-          </div>
-        ))}
+      <div className="mx-auto grid max-w-5xl gap-6 px-6 py-8 md:grid-cols-[220px_1fr]">
+        {/* Table of contents */}
+        <aside className="md:border-r md:border-[#E3DBC9] md:pr-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Contents</p>
+          <ol className="space-y-1">
+            {BOOK.map((c, i) => (
+              <li key={c.num}>
+                <button onClick={() => { setCh(i); setPg(0); }}
+                  className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${
+                    i === ch ? "bg-lugha-50 font-semibold text-lugha-700" : "hover:bg-black/5"}`}>
+                  <span className="text-muted">{c.num}.</span> {c.title}
+                  <span className="block text-[11px] text-muted">{c.stage}</span>
+                </button>
+              </li>
+            ))}
+          </ol>
+        </aside>
+
+        {/* The open page */}
+        <main>
+          <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-gold-600">{chapter.stage}</div>
+          <h2 className="mb-6 text-xl font-semibold">Chapter {chapter.num} — {chapter.title}</h2>
+
+          <article className="rounded-2xl border border-[#E3DBC9] bg-[#FBF8F1] p-10 shadow-sm">
+            <div className="text-center">
+              <p className="font-arabic text-7xl leading-none text-ink">{lesson.arabic}</p>
+              <p className="mt-4 text-lg text-lugha-700">{lesson.translit}</p>
+              <p className="mx-auto mt-3 max-w-md text-muted">{lesson.note}</p>
+            </div>
+            <div className="mt-8 flex items-center justify-center gap-3">
+              <button className="rounded-lg border border-lugha-200 px-4 py-2 text-sm text-lugha-700 hover:bg-lugha-50">▶ Hear it</button>
+              <button className="rounded-lg bg-gold-500 px-4 py-2 text-sm font-medium text-white hover:bg-gold-600">🎙 Repeat</button>
+            </div>
+          </article>
+
+          {/* Page turn */}
+          <nav className="mt-6 flex items-center justify-between">
+            <button onClick={prev} disabled={atFirst}
+              className="rounded-lg px-4 py-2 text-sm text-muted enabled:hover:bg-black/5 disabled:opacity-30">‹ Previous page</button>
+            <span className="text-xs text-muted">Chapter {chapter.num}, page {pg + 1} of {chapter.lessons.length}</span>
+            <button onClick={next} disabled={atLast}
+              className="rounded-lg bg-lugha-600 px-4 py-2 text-sm font-medium text-white enabled:hover:bg-lugha-700 disabled:opacity-30">Next page ›</button>
+          </nav>
+        </main>
       </div>
-    </>
+    </div>
   );
 }

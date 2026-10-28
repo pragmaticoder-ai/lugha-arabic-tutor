@@ -1,26 +1,29 @@
-:root{
-  --lugha-600:#0E7C66; --lugha-700:#0A5F4E; --lugha-50:#E8F5F1; --lugha-100:#C9E9E0;
-  --gold-500:#D9A441; --gold-100:#FBEFD6;
-  --slate-50:#F7F9FB; --slate-100:#EEF2F6; --slate-200:#E2E8F0;
-  --slate-500:#64748B; --slate-800:#1E293B; --slate-900:#0F172A;
-  --sk-listening:#0284C7; --sk-speaking:#D9A441; --sk-reading:#0E7C66; --sk-writing:#7C3AED;
-  --bg:var(--slate-50); --fg:var(--slate-800); --card:#fff; --border:var(--slate-200);
+@import "tailwindcss";
+
+/* Lugha design tokens as Tailwind v4 theme (from BRAND-AND-DESIGN.md) */
+@theme {
+  --color-lugha-50:  #E8F5F1;
+  --color-lugha-100: #C9E9E0;
+  --color-lugha-200: #9BD6C7;
+  --color-lugha-500: #1E7D63;
+  --color-lugha-600: #0E7C66;
+  --color-lugha-700: #0A5F4E;
+  --color-gold-100:  #FBEFD6;
+  --color-gold-500:  #D9A441;
+  --color-gold-600:  #B9872F;
+  --color-ink:       #1E293B;
+  --color-muted:     #64748B;
+  --color-sk-listening: #0284C7;
+  --color-sk-speaking:  #D9A441;
+  --color-sk-reading:   #0E7C66;
+  --color-sk-writing:   #7C3AED;
+  --font-arabic: "Noto Naskh Arabic", serif;
 }
-@media (prefers-color-scheme: dark){
-  :root{ --bg:#0B1220; --fg:#E6EDF3; --card:#121C2B; --border:#24324A; --lugha-50:#102A24 }
+
+:root { --bg:#F7F9FB; --fg:#1E293B; --card:#ffffff; --border:#E8EDF2; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0B1220; --fg:#E6EDF3; --card:#121C2B; --border:#24324A; }
 }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
-.arabic{font-family:"Noto Naskh Arabic",serif;direction:rtl;font-size:1.5rem;line-height:2.2}
-.container{max-width:560px;margin:0 auto;padding:16px 16px 84px}
-@media(min-width:900px){.container{max-width:720px}}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
-.btn{background:var(--lugha-600);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-weight:600;font-size:15px;cursor:pointer;width:100%}
-.btn:active{background:var(--lugha-700)}
-.btn-gold{background:var(--gold-500)}
-.tabbar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;background:var(--card);border-top:1px solid var(--border);padding:8px 0}
-.tab{flex:1;text-align:center;font-size:12px;color:var(--slate-500);padding:6px 0;background:none;border:none;cursor:pointer;min-height:44px}
-.tab.active{color:var(--lugha-600);font-weight:600}
-.streak{color:var(--gold-500);font-weight:600}
-.skill-pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:500}
+html, body { background: var(--bg); color: var(--fg); }
+body { -webkit-font-smoothing: antialiased; font-family: Inter, system-ui, sans-serif; }
+.font-arabic { font-family: var(--font-arabic); direction: rtl; }
